@@ -1,0 +1,9 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/income-tax/index"
+    ],
+    "window": {
+        "navigationBarTitleText": "各种计算器"
+    }
+}

@@ -1,0 +1,13 @@
+.cells {
+    font-size: 16px;
+    color: #333;
+}
+
+.cell {
+    padding: 15px 0;
+    border-top: 1px solid #eaeaea;
+}
+
+.cell:first-child {
+    border-top-width: 0;
+}

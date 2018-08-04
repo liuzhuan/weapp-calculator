@@ -1,0 +1,15 @@
+<view class="page__hd">
+    <view class="page__title">
+        各种计算器
+    </view>
+</view>
+
+<view class="page__bd">
+    <view class="cells">
+        <block wx:for="{{ links }}">
+            <navigator url="{{ item.url }}" class="cell">
+                {{ item.label }}
+            </navigator>
+        </block>
+    </view>
+</view>
