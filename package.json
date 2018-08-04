@@ -1,0 +1,27 @@
+{
+  "name": "weapp-calculator",
+  "version": "1.0.0",
+  "description": "「各种计算器」是个大杂烩式的计算器类小程序。",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuzhuan/weapp-calculator.git"
+  },
+  "keywords": [],
+  "author": "刘专 liuzhuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liuzhuan/weapp-calculator/issues"
+  },
+  "homepage": "https://github.com/liuzhuan/weapp-calculator#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.4.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
