@@ -10,7 +10,11 @@
                 <view class="weui-label">税前工资</view>
             </view>
             <view class="weui-cell__bd">
-                <input class="weui-input" type="digit" placeholder="请输入税前工资" />
+                <input class="weui-input" 
+                    type="digit" 
+                    placeholder="请输入税前工资"
+                    data-name="grossWage"
+                    bind:input="input" />
             </view>
             <view class="weui-cell__ft">
                 <view class="weui-vcode-btn">计算</view>

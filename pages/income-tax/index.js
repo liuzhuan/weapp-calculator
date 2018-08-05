@@ -1,5 +1,8 @@
 import utils from "../../utils/index.js";
 
+const maximumSocialSecurityPaymentBase = 25401;
+const minimumSocialSecurityPaymentBase = 3387;
+
 Page({
     data: {
         grossWage: 0,
@@ -8,8 +11,6 @@ Page({
         afterTaxWage: 0,
         cityName: "北京",
         socialSecurityPaymentBase: 0,
-        maximumSocialSecurityPaymentBase: 25401,
-        minimumSocialSecurityPaymentBase: 3387,
         accumulationFundPaymentBase: 0,
         hasAcculationFund: true,
         hasSocialSecurity: true,
