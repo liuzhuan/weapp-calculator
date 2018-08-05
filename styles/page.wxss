@@ -1,14 +1,18 @@
+page {
+    background: #eee;
+}
+
 .page__hd {
-    margin: 10px 15px 0;
+    padding: 10px 15px 0;
+    background: white;
 }
 
 .page__title {
     font-size: 32px;
     font-weight: bold;
-    border-bottom: 1px solid #eaeaea;
     padding: 15px 0;
 }
 
 .page__bd {
-    margin: 0 15px;
+    margin: 0;
 }

@@ -1,2 +1,132 @@
-<!--pages/income-tax/index.wxml-->
-<text>pages/income-tax/index.wxml</text>
+<view class="page__hd">
+    <view class="page__title">{{ cityName }}市五险一金及税后工资计算器</view>
+</view>
+
+<view class="page__bd">
+    <view class="weui-cells__title">输入参数</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input weui-cell_vcode">
+            <view class="weui-cell__hd">
+                <view class="weui-label">税前工资</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="digit" placeholder="请输入税前工资" />
+            </view>
+            <view class="weui-cell__ft">
+                <view class="weui-vcode-btn">计算</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">税后工资</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="digit" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">社保基数</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="digit" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">公积金基数</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="digit" />
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells__title">个人缴纳部分</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">养老保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">医疗保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">失业保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">基本住房公积金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">工伤保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">生育保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">共计支出</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">扣除社保后月薪</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">个人所得税</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">税后月薪</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+    </view>
+
+    <view class="weui-cells__title">单位缴纳部分</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">养老保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">医疗保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">失业保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">基本住房公积金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">工伤保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">生育保险金</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">共计支出</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">扣除社保后月薪</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">个人所得税</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">税后月薪</view>
+            <view class="weui-cell__ft">369.2（2%）</view>
+        </view>
+    </view>
+</view>

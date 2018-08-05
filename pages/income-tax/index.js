@@ -1,14 +1,18 @@
-const taxThreshold = 0;
+import utils from "../../utils/index.js";
 
 Page({
     data: {
         grossWage: 0,
         taxableWage: 0,
-        personalTax: 0,
+        personalIncomeTax: 0,
         afterTaxWage: 0,
         cityName: "北京",
         socialSecurityPaymentBase: 0,
+        maximumSocialSecurityPaymentBase: 25401,
+        minimumSocialSecurityPaymentBase: 3387,
         accumulationFundPaymentBase: 0,
+        hasAcculationFund: true,
+        hasSocialSecurity: true,
         accumulationFund: {
             personalRatio: 0.12,
             personalValue: 0,

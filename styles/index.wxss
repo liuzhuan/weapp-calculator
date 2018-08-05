@@ -1,1 +1,2 @@
 @import "page.wxss";
+@import "weui.wxss";

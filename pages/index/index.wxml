@@ -5,10 +5,11 @@
 </view>
 
 <view class="page__bd">
-    <view class="cells">
+    <view class="weui-cells">
         <block wx:for="{{ links }}">
-            <navigator url="{{ item.url }}" class="cell">
-                {{ item.label }}
+            <navigator url="{{ item.url }}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">{{ item.label }}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
         </block>
     </view>

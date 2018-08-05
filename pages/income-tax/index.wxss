@@ -1,1 +1,13 @@
-/* pages/income-tax/index.wxss */
+.page__title {
+    font-size: 18px;
+}
+
+.weui-vcode-btn {
+    color: white;
+    background: #333;
+}
+
+.weui-vcode-btn:active {
+    color: white;
+    background: #000;
+}
