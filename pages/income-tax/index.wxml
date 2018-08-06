@@ -17,7 +17,10 @@
                     bind:input="input" />
             </view>
             <view class="weui-cell__ft">
-                <view class="weui-vcode-btn">计算</view>
+                <view class="weui-vcode-btn"
+                    bind:tap="onCalculate">
+                    计算
+                </view>
             </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -25,7 +28,10 @@
                 <view class="weui-label">税后工资</view>
             </view>
             <view class="weui-cell__bd">
-                <input class="weui-input" type="digit" />
+                <input class="weui-input" 
+                    type="digit"
+                    value="{{ afterTaxWage }}"
+                    disabled />
             </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -33,7 +39,11 @@
                 <view class="weui-label">社保基数</view>
             </view>
             <view class="weui-cell__bd">
-                <input class="weui-input" type="digit" />
+                <input class="weui-input" 
+                    type="digit"
+                    value="{{ socialSecurityPaymentBase }}"
+                    bind:input="input"
+                    data-name="socialSecurityPaymentBase" />
             </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -41,7 +51,11 @@
                 <view class="weui-label">公积金基数</view>
             </view>
             <view class="weui-cell__bd">
-                <input class="weui-input" type="digit" />
+                <input class="weui-input" 
+                    type="digit"
+                    bind:input="input"
+                    value="{{ accumulationFundPaymentBase }}"
+                    data-name="accumulationFundPaymentBase" />
             </view>
         </view>
     </view>
@@ -50,43 +64,31 @@
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
             <view class="weui-cell__bd">养老保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ pensionInsurance.personalValue }}（{{ pensionInsurance.personalRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">医疗保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ medicalInsurance.personalValue }}（{{ medicalInsurance.personalRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">失业保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ unemploymentInsurance.personalValue }}（{{ unemploymentInsurance.personalRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">基本住房公积金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
-        </view>
-        <view class="weui-cell">
-            <view class="weui-cell__bd">工伤保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
-        </view>
-        <view class="weui-cell">
-            <view class="weui-cell__bd">生育保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ accumulationFund.personalValue }}（{{ accumulationFund.personalRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">共计支出</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ totalDeductionInsurance.personalValue }}</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">扣除社保后月薪</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ taxableWage }}</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">个人所得税</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
-        </view>
-        <view class="weui-cell">
-            <view class="weui-cell__bd">税后月薪</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ personalIncomeTax }}</view>
         </view>
     </view>
 
@@ -94,43 +96,31 @@
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
             <view class="weui-cell__bd">养老保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ pensionInsurance.companyValue }}（{{ pensionInsurance.companyRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">医疗保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ medicalInsurance.companyValue }}（{{ medicalInsurance.companyRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">失业保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ unemploymentInsurance.companyValue }}（{{ unemploymentInsurance.companyRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">基本住房公积金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ accumulationFund.companyValue }}（{{ accumulationFund.companyRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">工伤保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ industrialInjuryInsurance.companyValue }}（{{ industrialInjuryInsurance.companyRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">生育保险金</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ birthInsurance.companyValue }}（{{ birthInsurance.companyRatio * 100 }}%）</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">共计支出</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
-        </view>
-        <view class="weui-cell">
-            <view class="weui-cell__bd">扣除社保后月薪</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
-        </view>
-        <view class="weui-cell">
-            <view class="weui-cell__bd">个人所得税</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
-        </view>
-        <view class="weui-cell">
-            <view class="weui-cell__bd">税后月薪</view>
-            <view class="weui-cell__ft">369.2（2%）</view>
+            <view class="weui-cell__ft">{{ totalDeductionInsurance.companyValue }}</view>
         </view>
     </view>
 </view>

@@ -18,7 +18,7 @@ Page({
             personalRatio: 0.12,
             personalValue: 0,
             companyRatio: 0.12,
-            personalValue: 0,
+            companyValue: 0,
         },
         pensionInsurance: {
             personalRatio: 0.08,
@@ -50,5 +50,18 @@ Page({
             personalValue: 0,
             companyValue: 0,
         },
-    }
+    },
+    input,
+    onCalculate,
 })
+
+function onCalculate(e) {
+    console.log("calculate");
+}
+
+function input(e) {
+    console.log(e);
+    const { name } = e.currentTarget.dataset;
+    const value = e.detail.value;
+    console.log(name, value);
+}
