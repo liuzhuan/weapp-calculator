@@ -14,11 +14,11 @@
                     type="digit" 
                     placeholder="请输入税前工资"
                     data-name="grossWage"
-                    bind:input="input" />
+                    bindinput="input" />
             </view>
             <view class="weui-cell__ft">
                 <view class="weui-vcode-btn"
-                    bind:tap="onCalculate">
+                    bindtap="onCalculate">
                     计算
                 </view>
             </view>
@@ -42,7 +42,7 @@
                 <input class="weui-input" 
                     type="digit"
                     value="{{ socialSecurityPaymentBase }}"
-                    bind:input="input"
+                    bindinput="input"
                     data-name="socialSecurityPaymentBase" />
             </view>
         </view>
@@ -53,7 +53,7 @@
             <view class="weui-cell__bd">
                 <input class="weui-input" 
                     type="digit"
-                    bind:input="input"
+                    bindinput="input"
                     value="{{ accumulationFundPaymentBase }}"
                     data-name="accumulationFundPaymentBase" />
             </view>
