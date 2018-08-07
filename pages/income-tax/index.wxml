@@ -23,7 +23,7 @@
                 </view>
             </view>
         </view>
-        <view class="weui-cell weui-cell_input">
+        <view class="weui-cell weui-cell_input" wx:if="{{ showAfterTaxWage }}">
             <view class="weui-cell__hd">
                 <view class="weui-label">税后工资</view>
             </view>

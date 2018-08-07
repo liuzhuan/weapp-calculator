@@ -2,6 +2,12 @@ import utils from "../../utils/index.js";
 
 const maximumSocialSecurityPaymentBase = 25401;
 const minimumSocialSecurityPaymentBase = 3387;
+const accumulationFundRatio = 0.12;
+const pensionInsurancePersonalRatio = 0.08;
+const pensionInsuranceCompanyRatio = 0.19;
+const medicalInsurancePersonalRatio = 0.02;
+const medicalInsuranceCompanyRatio = 0.10;
+const unemploymentInsurancePersonalRatio = 0.002;
 
 Page({
     data: {
@@ -9,31 +15,32 @@ Page({
         taxableWage: 0,
         personalIncomeTax: 0,
         afterTaxWage: 0,
+        showAfterTaxWage: false,
         cityName: "北京",
         socialSecurityPaymentBase: 0,
         accumulationFundPaymentBase: 0,
         hasAcculationFund: true,
         hasSocialSecurity: true,
         accumulationFund: {
-            personalRatio: 0.12,
+            personalRatio: accumulationFundRatio,
             personalValue: 0,
-            companyRatio: 0.12,
+            companyRatio: accumulationFundRatio,
             companyValue: 0,
         },
         pensionInsurance: {
-            personalRatio: 0.08,
+            personalRatio: pensionInsurancePersonalRatio,
             personalValue: 0,
-            companyRatio: 0.19,
+            companyRatio: pensionInsuranceCompanyRatio,
             companyValue: 0,
         },
         medicalInsurance: {
-            personalRatio: 0.02,
+            personalRatio: medicalInsurancePersonalRatio,
             personalValue: 0,
-            companyRatio: 0.10,
+            companyRatio: medicalInsuranceCompanyRatio,
             companyValue: 0,
         },
         unemploymentInsurance: {
-            personalRatio: 0.002,
+            personalRatio: unemploymentInsurancePersonalRatio,
             personalValue: 0,
             companyRatio: 0.008,
             companyValue: 0,
@@ -56,12 +63,36 @@ Page({
 })
 
 function onCalculate(e) {
-    console.log("calculate");
+    doTheMath.call(this);
+}
+
+function doTheMath() {
+    const {
+        grossWage,
+        socialSecurityPaymentBase,
+        accumulationFundPaymentBase,
+    } = this.data;
 }
 
 function input(e) {
-    console.log(e);
     const { name } = e.currentTarget.dataset;
     const value = e.detail.value;
-    console.log(name, value);
+    this.setData({
+        [name]: value,
+        showAfterTaxWage: false,
+    });
+
+    if (name === "grossWage") {
+        updateSecurityAndAccumulationFundPaymentBase.call(this, value);
+    }
+}
+
+function updateSecurityAndAccumulationFundPaymentBase(grossWage) {
+    let paymentBase = Math.max(minimumSocialSecurityPaymentBase, grossWage);
+    paymentBase = Math.min(paymentBase, maximumSocialSecurityPaymentBase);
+
+    this.setData({
+        socialSecurityPaymentBase: paymentBase,
+        accumulationFundPaymentBase: paymentBase
+    });
 }
