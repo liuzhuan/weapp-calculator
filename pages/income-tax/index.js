@@ -8,6 +8,9 @@ const pensionInsuranceCompanyRatio = 0.19;
 const medicalInsurancePersonalRatio = 0.02;
 const medicalInsuranceCompanyRatio = 0.10;
 const unemploymentInsurancePersonalRatio = 0.002;
+const unemploymentInsuranceCompanyRatio = 0.008;
+const industrialInjuryInsuranceCompanyRatio = 0.04;
+const birthInsuranceCompanyRatio = 0.08;
 
 Page({
     data: {
@@ -42,15 +45,15 @@ Page({
         unemploymentInsurance: {
             personalRatio: unemploymentInsurancePersonalRatio,
             personalValue: 0,
-            companyRatio: 0.008,
+            companyRatio: unemploymentInsuranceCompanyRatio,
             companyValue: 0,
         },
         industrialInjuryInsurance: {
-            companyRatio: 0.04,
+            companyRatio: industrialInjuryInsuranceCompanyRatio,
             companyValue: 0,
         },
         birthInsurance: {
-            companyRatio: 0.08,
+            companyRatio: birthInsuranceCompanyRatio,
             companyValue: 0,
         },
         totalDeductionInsurance: {
@@ -67,11 +70,78 @@ function onCalculate(e) {
 }
 
 function doTheMath() {
+    if (!checkValid(this.data)) return;
+
     const {
         grossWage,
         socialSecurityPaymentBase,
         accumulationFundPaymentBase,
     } = this.data;
+
+    const accumulationFundValue = accumulationFundPaymentBase * accumulationFundRatio;
+    const pensionInsurancePersonalValue = socialSecurityPaymentBase * pensionInsurancePersonalRatio;
+    const pensionInsuranceCompanyValue = socialSecurityPaymentBase * pensionInsuranceCompanyRatio;
+    const medicalInsurancePersonalValue = socialSecurityPaymentBase * medicalInsurancePersonalRatio;
+    const medicalInsuranceCompanyValue = socialSecurityPaymentBase * medicalInsuranceCompanyRatio;
+    const unemploymentInsurancePersonalValue = socialSecurityPaymentBase * unemploymentInsurancePersonalRatio;
+    const unemploymentInsuranceCompanyValue = socialSecurityPaymentBase * unemploymentInsuranceCompanyRatio;
+    const industrialInjuryInsuranceValue = socialSecurityPaymentBase * industrialInjuryInsuranceCompanyRatio;
+    const birthInsuranceValue = socialSecurityPaymentBase * birthInsuranceCompanyRatio;
+    const totalDeductionInsurancePersonalValue = accumulationFundValue + pensionInsurancePersonalValue +
+        medicalInsurancePersonalValue + unemploymentInsurancePersonalValue;
+    const totalDeductionInsuranceCompanyValue = accumulationFundValue + pensionInsuranceCompanyValue +
+        medicalInsuranceCompanyValue + unemploymentInsuranceCompanyValue + industrialInjuryInsuranceValue +
+        birthInsuranceValue;
+    const taxableWage = grossWage - totalDeductionInsurancePersonalValue;
+    const personalIncomeTax = utils.incomeTax(taxableWage);
+    const afterTaxWage = taxableWage - personalIncomeTax;
+
+    this.setData({
+        taxableWage,
+        personalIncomeTax,
+        afterTaxWage,
+        showAfterTaxWage: true,
+        "accumulationFund.personalValue": accumulationFundValue,
+        "accumulationFund.companyValue": accumulationFundValue,
+        "pensionInsurance.personalValue": pensionInsurancePersonalValue,
+        "pensionInsurance.companyValue": pensionInsuranceCompanyValue,
+        "medicalInsurance.personalValue": medicalInsurancePersonalValue,
+        "medicalInsurance.companyValue": medicalInsuranceCompanyValue,
+        "unemploymentInsurance.personalValue": unemploymentInsurancePersonalValue,
+        "unemploymentInsurance.companyValue": unemploymentInsuranceCompanyValue,
+        "industrialInjuryInsurance.companyValue": industrialInjuryInsuranceValue,
+        "birthInsurance.companyValue": birthInsuranceValue,
+        "totalDeductionInsurance.personalValue": totalDeductionInsurancePersonalValue,
+        "totalDeductionInsurance.companyValue": totalDeductionInsuranceCompanyValue,
+    });
+}
+
+function checkValid(data) {
+    const alert = utils.alert;
+
+    if (!data) return false;
+    const {
+        grossWage,
+        socialSecurityPaymentBase,
+        accumulationFundPaymentBase
+    } = data;
+
+    if (!grossWage) {
+        alert("请输入税前工资");
+        return false;
+    }
+
+    if (!socialSecurityPaymentBase) {
+        alert("请输入社保基数");
+        return false;
+    }
+
+    if (!accumulationFundPaymentBase) {
+        alert("请输入公积金基数");
+        return false;
+    }
+
+    return true;
 }
 
 function input(e) {
