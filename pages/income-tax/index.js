@@ -106,22 +106,22 @@ function doTheMath() {
     const afterTaxWage = taxableWage - personalIncomeTax;
 
     this.setData({
-        taxableWage,
-        personalIncomeTax,
-        afterTaxWage,
+        taxableWage: formatMoney(taxableWage),
+        personalIncomeTax: formatMoney(personalIncomeTax),
+        afterTaxWage: formatMoney(afterTaxWage),
         showAfterTaxWage: true,
-        "accumulationFund.personalValue": accumulationFundValue,
-        "accumulationFund.companyValue": accumulationFundValue,
-        "pensionInsurance.personalValue": pensionInsurancePersonalValue,
-        "pensionInsurance.companyValue": pensionInsuranceCompanyValue,
-        "medicalInsurance.personalValue": medicalInsurancePersonalValue,
-        "medicalInsurance.companyValue": medicalInsuranceCompanyValue,
-        "unemploymentInsurance.personalValue": unemploymentInsurancePersonalValue,
-        "unemploymentInsurance.companyValue": unemploymentInsuranceCompanyValue,
-        "industrialInjuryInsurance.companyValue": industrialInjuryInsuranceValue,
-        "birthInsurance.companyValue": birthInsuranceValue,
-        "totalDeductionInsurance.personalValue": totalDeductionInsurancePersonalValue,
-        "totalDeductionInsurance.companyValue": totalDeductionInsuranceCompanyValue,
+        "accumulationFund.personalValue": formatMoney(accumulationFundValue),
+        "accumulationFund.companyValue": formatMoney(accumulationFundValue),
+        "pensionInsurance.personalValue": formatMoney(pensionInsurancePersonalValue),
+        "pensionInsurance.companyValue": formatMoney(pensionInsuranceCompanyValue),
+        "medicalInsurance.personalValue": formatMoney(medicalInsurancePersonalValue),
+        "medicalInsurance.companyValue": formatMoney(medicalInsuranceCompanyValue),
+        "unemploymentInsurance.personalValue": formatMoney(unemploymentInsurancePersonalValue),
+        "unemploymentInsurance.companyValue": formatMoney(unemploymentInsuranceCompanyValue),
+        "industrialInjuryInsurance.companyValue": formatMoney(industrialInjuryInsuranceValue),
+        "birthInsurance.companyValue": formatMoney(birthInsuranceValue),
+        "totalDeductionInsurance.personalValue": formatMoney(totalDeductionInsurancePersonalValue),
+        "totalDeductionInsurance.companyValue": formatMoney(totalDeductionInsuranceCompanyValue),
     });
 }
 
@@ -174,4 +174,8 @@ function updateSecurityAndAccumulationFundPaymentBase(grossWage) {
         socialSecurityPaymentBase: paymentBase,
         accumulationFundPaymentBase: paymentBase
     });
+}
+
+function formatMoney(value) {
+    return value.toFixed(2);
 }
