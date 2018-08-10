@@ -63,7 +63,16 @@ Page({
     },
     input,
     onCalculate,
+    onShareAppMessage,
 })
+
+function onShareAppMessage() {
+    return {
+        title: "北京市五险一金及税后工资计算器",
+        path: "/pages/income-tax/index",
+        imageUrl: "/images/share.png",
+    }
+}
 
 function onCalculate(e) {
     doTheMath.call(this);

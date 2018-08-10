@@ -5,5 +5,14 @@ const links = [
 Page({
     data: {
         links
-    }
+    },
+    onShareAppMessage,
 })
+
+function onShareAppMessage() {
+    return {
+        title: "各种计算器",
+        path: "/pages/index/index",
+        imageUrl: "/images/share.png"
+    }
+}
