@@ -11,3 +11,11 @@
     color: white;
     background: #000;
 }
+
+.switch {
+    font-size: 14px;
+}
+
+.weui-input[disabled] {
+    color: #999;
+}

@@ -22,8 +22,8 @@ Page({
         cityName: "北京",
         socialSecurityPaymentBase: 0,
         accumulationFundPaymentBase: 0,
-        hasAcculationFund: true,
-        hasSocialSecurity: true,
+        accumulationFundPaymentBaseEditable: false,
+        socialSecurityPaymentBaseEditable: false,
         accumulationFund: {
             personalRatio: accumulationFundRatio,
             personalValue: 0,
@@ -64,7 +64,16 @@ Page({
     input,
     onCalculate,
     onShareAppMessage,
+    onSwitchChange,
 })
+
+function onSwitchChange(e) {
+    const value = e.detail.value;
+    const name = e.currentTarget.dataset.name;
+    this.setData({
+        [name]: value
+    });
+}
 
 function onShareAppMessage() {
     return {
@@ -167,13 +176,25 @@ function input(e) {
 }
 
 function updateSecurityAndAccumulationFundPaymentBase(grossWage) {
+    const { 
+        accumulationFundPaymentBaseEditable,
+        socialSecurityPaymentBaseEditable,
+    } = this.data;
+
+    const updated = {};
+
     let paymentBase = Math.max(minimumSocialSecurityPaymentBase, grossWage);
     paymentBase = Math.min(paymentBase, maximumSocialSecurityPaymentBase);
 
-    this.setData({
-        socialSecurityPaymentBase: paymentBase,
-        accumulationFundPaymentBase: paymentBase
-    });
+    if (accumulationFundPaymentBaseEditable === false) {
+        updated.accumulationFundPaymentBase = paymentBase;
+    }
+
+    if (socialSecurityPaymentBaseEditable === false) {
+        updated.socialSecurityPaymentBase = paymentBase;
+    }
+
+    this.setData(updated);
 }
 
 function formatMoney(value) {

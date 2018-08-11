@@ -41,9 +41,17 @@
             <view class="weui-cell__bd">
                 <input class="weui-input" 
                     type="digit"
+                    disabled="{{ !socialSecurityPaymentBaseEditable }}"
                     value="{{ socialSecurityPaymentBase }}"
                     bindinput="input"
                     data-name="socialSecurityPaymentBase" />
+            </view>
+            <view class="weui-cell__ft">
+                <switch class="switch" color="#333333" 
+                    bindchange="onSwitchChange"
+                    data-name="socialSecurityPaymentBaseEditable">
+                    自定义
+                </switch>
             </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -53,9 +61,17 @@
             <view class="weui-cell__bd">
                 <input class="weui-input" 
                     type="digit"
+                    disabled="{{ !accumulationFundPaymentBaseEditable }}"
                     bindinput="input"
                     value="{{ accumulationFundPaymentBase }}"
                     data-name="accumulationFundPaymentBase" />
+            </view>
+            <view class="weui-cell__ft">
+                <switch class="switch" color="#333333" 
+                    bindchange="onSwitchChange"
+                    data-name="accumulationFundPaymentBaseEditable">
+                    自定义
+                </switch>
             </view>
         </view>
     </view>
@@ -64,19 +80,19 @@
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
             <view class="weui-cell__bd">养老保险金</view>
-            <view class="weui-cell__ft">{{ pensionInsurance.personalValue }}（{{ pensionInsurance.personalRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ pensionInsurance.personalValue }}({{ pensionInsurance.personalRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">医疗保险金</view>
-            <view class="weui-cell__ft">{{ medicalInsurance.personalValue }}（{{ medicalInsurance.personalRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ medicalInsurance.personalValue }}({{ medicalInsurance.personalRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">失业保险金</view>
-            <view class="weui-cell__ft">{{ unemploymentInsurance.personalValue }}（{{ unemploymentInsurance.personalRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ unemploymentInsurance.personalValue }}({{ unemploymentInsurance.personalRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">基本住房公积金</view>
-            <view class="weui-cell__ft">{{ accumulationFund.personalValue }}（{{ accumulationFund.personalRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ accumulationFund.personalValue }}({{ accumulationFund.personalRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">共计支出</view>
@@ -96,27 +112,27 @@
     <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
             <view class="weui-cell__bd">养老保险金</view>
-            <view class="weui-cell__ft">{{ pensionInsurance.companyValue }}（{{ pensionInsurance.companyRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ pensionInsurance.companyValue }}({{ pensionInsurance.companyRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">医疗保险金</view>
-            <view class="weui-cell__ft">{{ medicalInsurance.companyValue }}（{{ medicalInsurance.companyRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ medicalInsurance.companyValue }}({{ medicalInsurance.companyRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">失业保险金</view>
-            <view class="weui-cell__ft">{{ unemploymentInsurance.companyValue }}（{{ unemploymentInsurance.companyRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ unemploymentInsurance.companyValue }}({{ unemploymentInsurance.companyRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">基本住房公积金</view>
-            <view class="weui-cell__ft">{{ accumulationFund.companyValue }}（{{ accumulationFund.companyRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ accumulationFund.companyValue }}({{ accumulationFund.companyRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">工伤保险金</view>
-            <view class="weui-cell__ft">{{ industrialInjuryInsurance.companyValue }}（{{ industrialInjuryInsurance.companyRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ industrialInjuryInsurance.companyValue }}({{ industrialInjuryInsurance.companyRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">生育保险金</view>
-            <view class="weui-cell__ft">{{ birthInsurance.companyValue }}（{{ birthInsurance.companyRatio * 100 }}%）</view>
+            <view class="weui-cell__ft">{{ birthInsurance.companyValue }}({{ birthInsurance.companyRatio * 100 }}%)</view>
         </view>
         <view class="weui-cell">
             <view class="weui-cell__bd">共计支出</view>
