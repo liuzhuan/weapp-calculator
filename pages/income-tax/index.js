@@ -73,6 +73,10 @@ function onSwitchChange(e) {
     this.setData({
         [name]: value
     });
+
+    if (value === false) {
+        updateSecurityAndAccumulationFundPaymentBase.call(this, this.data.grossWage)
+    }
 }
 
 function onShareAppMessage() {
