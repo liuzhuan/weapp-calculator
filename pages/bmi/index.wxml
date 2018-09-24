@@ -1,0 +1,69 @@
+<view class="page__hd">
+    <view class="page__title">体重指数 BMI</view>
+</view>
+
+<view class="page__bd">
+    <view class="weui-cells__title">输入参数</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">体重</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" 
+                    type="digit" 
+                    placeholder="请输入体重"
+                    data-name="weight"
+                    bindinput="input" />
+            </view>
+            <view class="weui-cell__ft">
+                kg
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">身高</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" 
+                    type="digit"
+                    placeholder="请输入身高"
+                    data-name="height"
+                    bindinput="input" />
+            </view>
+            <view class="weui-cell__ft">
+                m
+            </view>
+        </view>
+    </view>
+    <view class="action-container">
+        <button type="primary" bindtap="onCalculate">计算</button>
+    </view>
+    <view class="output">
+        <block wx:if="{{ bmi }}">
+            <view class="score">您的BMI是:  <span class="score-num">{{ bmi }}</span></view>
+            <view class="status"></view>
+        </block>
+        <view class="ref">
+            <view class="ref-title">成人的BMI数值表格</view>
+            <view class="ref-cells">
+                <view class="ref-cell" wx:for="{{ refDatas }}">
+                    <view class="ref-cell__hd">
+                        <block wx:if="{{ item.min === 0 }}">
+                            小于{{ item.max }}
+                        </block>
+                        <block wx:elif="{{ item.max === 1024 }}">
+                            大于{{ item.min }}
+                        </block>
+                        <block wx:else>
+                            {{ item.min }} - {{ item.max }}
+                        </block>
+                    </view>
+                    <view class="ref-cell__bd">
+                        {{ item.value }}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

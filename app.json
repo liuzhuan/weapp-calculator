@@ -1,7 +1,8 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/income-tax/index"
+        "pages/income-tax/index",
+        "pages/bmi/index"
     ],
     "window": {
         "navigationBarTitleText": "各种计算器"

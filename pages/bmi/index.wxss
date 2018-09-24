@@ -1,0 +1,54 @@
+.action-container {
+    padding: 10px 15px;
+}
+
+.ref-cell {
+    display: flex;
+}
+
+.ref-cell__hd {
+    width: 100px;
+}
+
+.ref-cell__bd {
+    flex: 1;
+}
+
+.output {
+    background: white;
+    padding: 10px 15px;
+}
+
+.score {
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+.score-num {
+    font-size: 24px;
+    font-weight: bold;
+    color: #43ac43;
+}
+
+.ref {
+    margin-top: 20px;
+}
+
+.ref-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    line-height: 2em;
+    text-align: center;
+}
+
+.ref-cells {
+    border: 1px solid #eaeaea;
+    padding: 4px 6px;
+}
+
+.ref-cell {
+    font-size: 14px;
+    color: #666;
+}

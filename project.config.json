@@ -30,12 +30,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "Income Tax",
-					"pathName": "pages/income-tax/index"
+					"pathName": "pages/income-tax/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "BMI",
+					"pathName": "pages/bmi/index",
+					"query": ""
 				}
 			]
 		}
