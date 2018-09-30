@@ -1,14 +1,16 @@
-const taxLevels = [
-    { max: 1500, ratio: 0.03, diff: 0 },
-    { max: 4500, ratio: 0.1, diff: 105 },
-    { max: 9000, ratio: 0.2, diff: 555 },
-    { max: 35000, ratio: 0.25, diff: 1005 },
-    { max: 55000, ratio: 0.3, diff: 2755 },
-    { max: 80000, ratio: 0.35, diff: 5505 },
-    { max: Infinity, ratio: 0.45, diff: 13505 }
-]
+// 起征点
+const taxThreshold = 5000;
 
-const taxThreshold = 3500;
+// 阶梯税率和速算扣除数
+const taxLevels = [
+    { max: 3000, ratio: 0.03, diff: 0 },
+    { max: 12000, ratio: 0.1, diff: 210 },
+    { max: 25000, ratio: 0.2, diff: 1410 },
+    { max: 35000, ratio: 0.25, diff: 2660 },
+    { max: 55000, ratio: 0.3, diff: 4410 },
+    { max: 80000, ratio: 0.35, diff: 7160 },
+    { max: Infinity, ratio: 0.45, diff: 15160 }
+]
 
 function findLevelIndex(taxableWage) {
     if (isNaN(taxableWage)) {
