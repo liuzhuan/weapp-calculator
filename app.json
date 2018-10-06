@@ -2,6 +2,7 @@
     "pages": [
         "pages/index/index",
         "pages/income-tax/index",
+        "pages/mortgage/index",
         "pages/bmi/index"
     ],
     "window": {

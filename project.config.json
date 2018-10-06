@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -43,6 +43,11 @@
 					"name": "BMI",
 					"pathName": "pages/bmi/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "mortgage",
+					"pathName": "pages/mortgage/index"
 				}
 			]
 		}
