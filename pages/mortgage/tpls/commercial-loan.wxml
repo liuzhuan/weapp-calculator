@@ -1,0 +1,3 @@
+<template name="commercial-loan">
+    <view>商业贷款</view>
+</template>

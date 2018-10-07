@@ -1,3 +1,7 @@
+<import src="tpls/fund-loan.wxml" />
+<import src="tpls/commercial-loan.wxml" />
+<import src="tpls/combined-loan.wxml" />
+
 <view class="page">
     <view class="page__bd">
         <view class="weui-tab">
@@ -11,27 +15,18 @@
             </view>
             <view class="weui-tab__panel">
                 <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-                    <template is="fund-loan"></template>
+                    <template is="fund-loan"
+                        data="{{ formIndex: 0, calculationModes, activeCalculationModeIndex, loanRatios  }}" />
                 </view>
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-                    <template is="commercial-loan"></template>
+                    <template is="commercial-loan"
+                        data="{{ formIndex: 1 }}" />
                 </view>
                 <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-                    <template is="combined-loan"></template>
+                    <template is="combined-loan"
+                        data="{{ formIndex: 2 }}" />
                 </view>
             </view>
         </view>
     </view>
 </view>
-
-<template name="fund-loan">
-    <view>公积金贷款</view>
-</template>
-
-<template name="commercial-loan">
-    <view>商业贷款</view>
-</template>
-
-<template name="combined-loan">
-    <view>组合贷款</view>
-</template>

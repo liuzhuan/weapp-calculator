@@ -1,1 +1,3 @@
-/* pages/mortgage/index.wxss */
+.weui-tab {
+    background: #ffffff;
+}

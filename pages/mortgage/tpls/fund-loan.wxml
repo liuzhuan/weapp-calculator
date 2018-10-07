@@ -1,0 +1,39 @@
+<template name="fund-loan">
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">计算方式</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="onCalculationModeChanged" value="{{activeCalculationModeIndex}}" range="{{calculationModes}}">
+                    <view class="weui-select weui-select_in-select-after">
+                        {{calculationModes[activeCalculationModeIndex]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">房价总额</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="number" value="0" placeholder="请输入房价总额"/>
+            </view>
+            <view class="weui-cell__ft">
+                元
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">贷款比例</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="onCalculationModeChanged" value="{{activeCalculationModeIndex}}" range="{{loanRatios}}">
+                    <view class="weui-select weui-select_in-select-after">
+                        {{loanRatios[activeCalculationModeIndex]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+</template>

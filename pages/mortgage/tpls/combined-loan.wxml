@@ -1,0 +1,3 @@
+<template name="combined-loan">
+    <view>组合贷款</view>
+</template>

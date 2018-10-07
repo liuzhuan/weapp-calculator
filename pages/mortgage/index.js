@@ -36,6 +36,7 @@ Page({
     onShow,
     tabClick,
     onShareAppMessage,
+    onCalculationModeChanged
 })
 
 function onLoad() {
@@ -60,6 +61,13 @@ function tabClick(e) {
     this.setData({
         sliderOffset: e.currentTarget.offsetLeft,
         activeIndex: e.currentTarget.id
+    });
+}
+
+function onCalculationModeChanged(e) {
+    const value = e.detail.value;
+    this.setData({
+        activeCalculationModeIndex: value
     });
 }
 
