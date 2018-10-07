@@ -1,7 +1,37 @@
-<view class="page__hd">
-    <view class="page__title">房贷计算器</view>
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                    <template is="fund-loan"></template>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                    <template is="commercial-loan"></template>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                    <template is="combined-loan"></template>
+                </view>
+            </view>
+        </view>
+    </view>
 </view>
 
-<view class="page__bd">
-    
-</view>
+<template name="fund-loan">
+    <view>公积金贷款</view>
+</template>
+
+<template name="commercial-loan">
+    <view>商业贷款</view>
+</template>
+
+<template name="combined-loan">
+    <view>组合贷款</view>
+</template>
