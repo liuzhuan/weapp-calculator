@@ -3,6 +3,7 @@
         "pages/index/index",
         "pages/income-tax/index",
         "pages/mortgage/index",
+        "pages/mortgage/result/index",
         "pages/bmi/index"
     ],
     "window": {
