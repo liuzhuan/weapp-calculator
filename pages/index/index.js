@@ -1,6 +1,6 @@
 const links = [
     { url: "/pages/income-tax/index", label: "北京市五险一金及税后工资计算器" },
-    { url: "/pages/mortgage/index", label: "房贷计算器" },
+    // { url: "/pages/mortgage/index", label: "房贷计算器" }, // suspend
     { url: "/pages/bmi/index", label: "体重指数（BMI）" },
 ]
 
