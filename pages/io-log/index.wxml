@@ -1,0 +1,10 @@
+<view class="page">
+    <template is="list" data="{{ logData }}"></template>
+</view>
+
+<template name="list">
+    <view>出入量记录</view>
+    <view class="weui-cells">
+        
+    </view>
+</template>

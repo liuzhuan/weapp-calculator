@@ -4,7 +4,8 @@
         "pages/income-tax/index",
         "pages/mortgage/index",
         "pages/mortgage/result/index",
-        "pages/bmi/index"
+        "pages/bmi/index",
+        "pages/io-log/index"
     ],
     "window": {
         "navigationBarTitleText": "各种计算器"
